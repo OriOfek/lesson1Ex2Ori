@@ -90,10 +90,6 @@ public class MainActivity extends AppCompatActivity {
 
             startActivityForResult(si, ANSWERS_NUMBER);
         }
-        else
-        {
-            Toast.makeText(MainActivity.this, "please enter a number!", Toast.LENGTH_LONG).show();
-        }
     }
 
     @Override
