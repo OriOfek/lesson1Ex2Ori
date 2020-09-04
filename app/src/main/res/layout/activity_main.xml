@@ -19,11 +19,10 @@
 
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
+            android:id="@+id/result1"
+            android:layout_width="46dp"
             android:layout_height="0px"
-            android:layout_weight="1"
-            android:text="result2" />
+            android:layout_weight="1" />
 
         <Space
             android:layout_width="match_parent"
@@ -96,6 +95,59 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="0px"
+            android:layout_weight="0.1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="a"
+                android:textSize="36sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="b"
+                android:textSize="36sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="c"
+                android:textSize="36sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0px"
             android:layout_weight="1" />
 
         <LinearLayout
@@ -108,6 +160,7 @@
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="generate"
                 android:text="Random" />
 
             <Space
@@ -118,6 +171,7 @@
             <Button
                 android:layout_width="0px"
                 android:layout_height="match_parent"
+                android:onClick="solve"
                 android:layout_weight="1"
                 android:text="Solve" />
         </LinearLayout>
