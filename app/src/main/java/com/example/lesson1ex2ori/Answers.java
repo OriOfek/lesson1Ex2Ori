@@ -32,7 +32,8 @@ public class Answers extends AppCompatActivity {
         wv = (WebView) findViewById(R.id.wv);
         abc = (TextView) findViewById(R.id.abc);
         wv.getSettings().setJavaScriptEnabled(true);
-        wv.setWebViewClient(new MyWebViewClient());
+        wv.setWebViewClient(new MyBrowser());
+
         results = (TextView) findViewById(R.id.results);
 
         gi = getIntent();
@@ -112,10 +113,9 @@ public class Answers extends AppCompatActivity {
         }
         return answer;
     }
-
-
-    private class MyWebViewClient extends WebViewClient {
-        public boolean shouldOverideUrlLoading(WebView view, String url) {
+    private class MyBrowser extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);
             return true;
         }
