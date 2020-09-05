@@ -15,13 +15,14 @@ public class Answers extends AppCompatActivity {
     String url;
     float a, b, c, determinant;
     WebView wv;
+    String result1Str, result2Str;
     String signa;
     String signb;
     String signc;
     String stra;
     String strb;
     String strc;
-    double result1, result2;
+    float result1, result2;
     TextView abc, results;
 
     @Override
@@ -41,19 +42,20 @@ public class Answers extends AppCompatActivity {
         b = gi.getFloatExtra("b", 1);
         c = gi.getFloatExtra("c", 1);
 
-        abc.setText("a=" + a + " b=" + b + " c=" + c);
+
+        abc.setText("a=" + editNumers(a) + " b=" + editNumers(b) + " c=" + editNumers(c));
         determinant = (float) ((b * b) - (4.0 * a * c));
 
-        result1 = (-b + Math.pow(determinant, 0.5)) / (2.0 * a);
-        result2 = (-b - Math.pow(determinant, 0.5)) / (2.0 * a);
+        result1 = (float) ((-b + Math.pow(determinant, 0.5)) / (2.0 * a));
+        result2 = (float) ((-b - Math.pow(determinant, 0.5)) / (2.0 * a));
 
         signa = getsign(String.valueOf(a));
         signb = getsign(String.valueOf(b));
         signc = getsign(String.valueOf(c));
 
-        stra = getstr(String.valueOf(a));
-        strb = getstr(String.valueOf(b));
-        strc = getstr(String.valueOf(c));
+        stra = editNumers(Float.valueOf(getstr(String.valueOf(a))));
+        strb = editNumers(Float.valueOf(getstr(String.valueOf(b))));
+        strc = editNumers(Float.valueOf(getstr(String.valueOf(c))));
 
         if (strc.contains("*"))
         {
@@ -68,7 +70,7 @@ public class Answers extends AppCompatActivity {
         }
         wv.loadUrl(url);
 
-        results.setText("result1=" + result1 + " result2=" + result2);
+        results.setText("result1=" + editNumers(result1) + " result2=" + editNumers(result2));
     }
 
     public void back(View view) {
@@ -76,6 +78,15 @@ public class Answers extends AppCompatActivity {
         gi.putExtra("result2", result2);
         setResult(RESULT_OK, gi);
         finish();
+    }
+
+    private  String editNumers(float number)
+    {
+        if((((float)((int)number)) == (float)number))
+        {
+            return String.valueOf((int)number);
+        }
+        return String.valueOf(number);
     }
     /*
     Input: edit text

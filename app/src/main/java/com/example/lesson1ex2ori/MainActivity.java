@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkvalid(EditText et, String a) {
-        float value = 0;
+        float value = 1;
         String str = et.getText().toString();
         if (str.equals("")||str.equals(".")||str.equals("-")) {
             isValid = false;
@@ -91,23 +91,31 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(si, ANSWERS_NUMBER);
         }
     }
+    private  String editNumers(float number)
+    {
+        if((((float)((int)number)) == (float)number))
+        {
+            return String.valueOf((int)number);
+        }
+        return String.valueOf(number);
+    }
 
     @Override
     protected void onActivityResult(int source, int good, @Nullable Intent data_back) {
         super.onActivityResult(source, good, data_back);
-        double r1;
-        double r2;
+        float r1;
+        float r2;
         if (data_back != null) {
             // check that it is the SecondActivity with an OK result
             if (source == ANSWERS_NUMBER) {
                 if (good == RESULT_OK) {
 
-                    r1 = data_back.getDoubleExtra("result1", 1);
-                    r2 = data_back.getDoubleExtra("result2", 1);
+                    r1 = data_back.getFloatExtra("result1", 1);
+                    r2 = data_back.getFloatExtra("result2", 1);
 
                     // set text view with string
-                    result1.setText(String.valueOf(r1));
-                    result2.setText(String.valueOf(r2));
+                    result1.setText(editNumers(Float.valueOf(String.valueOf(r1))));
+                    result2.setText(editNumers(Float.valueOf(String.valueOf(r2))));
 
                 }
             }
