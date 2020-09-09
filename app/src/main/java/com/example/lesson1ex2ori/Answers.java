@@ -10,6 +10,8 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static java.lang.Double.NaN;
+
 public class Answers extends AppCompatActivity {
     Intent gi;
     String url;
@@ -41,7 +43,6 @@ public class Answers extends AppCompatActivity {
         a = gi.getFloatExtra("a", 1);
         b = gi.getFloatExtra("b", 1);
         c = gi.getFloatExtra("c", 1);
-
 
         abc.setText("a=" + editNumers(a) + " b=" + editNumers(b) + " c=" + editNumers(c));
         determinant = (float) ((b * b) - (4.0 * a * c));
@@ -82,6 +83,9 @@ public class Answers extends AppCompatActivity {
 
     private  String editNumers(float number)
     {
+        if(Float.isNaN(number)) {
+            return ("no solution");
+        }
         if((((float)((int)number)) == (float)number))
         {
             return String.valueOf((int)number);

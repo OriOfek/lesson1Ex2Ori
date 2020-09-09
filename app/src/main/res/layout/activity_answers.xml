@@ -52,8 +52,8 @@
                 android:id="@+id/results"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:textSize="15sp" />
+                android:layout_weight="8"
+                android:textSize="16sp" />
 
             <Space
                 android:layout_width="0px"
@@ -64,8 +64,8 @@
                 android:id="@+id/abc"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:textSize="15sp" />
+                android:layout_weight="8"
+                android:textSize="16sp" />
 
             <Space
                 android:layout_width="0px"
@@ -76,7 +76,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="0px"
-            android:layout_weight="1" />
+            android:layout_weight="0.1" />
 
         <WebView
             android:id="@+id/wv"

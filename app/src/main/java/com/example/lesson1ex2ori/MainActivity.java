@@ -43,10 +43,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void generate(View view) {
         Random rnd = new Random();
-        DecimalFormat df = new DecimalFormat();
         a = (Float.MIN_VALUE) + rnd.nextFloat() * (Float.MAX_VALUE - (Float.MIN_VALUE));
+        if(rnd.nextBoolean())
+        {
+            a = -1 * a;
+        }
         b = (Float.MIN_VALUE) + rnd.nextFloat() * (Float.MAX_VALUE - (Float.MIN_VALUE));
+        if(rnd.nextBoolean())
+        {
+            b = -1 * b;
+        }
         c = (Float.MIN_VALUE) + rnd.nextFloat() * (Float.MAX_VALUE - (Float.MIN_VALUE));
+        if(rnd.nextBoolean())
+        {
+            c = -1 * c;
+        }
 
         eta.setText(String.valueOf(a));
         etb.setText(String.valueOf(b));
@@ -93,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
     }
     private  String editNumers(float number)
     {
+        if(Float.isNaN(number)) {
+            return ("no solution");
+        }
+        if(Float.isInfinite(number)) {
+            return ("too big");
+        }
         if((((float)((int)number)) == (float)number))
         {
             return String.valueOf((int)number);
