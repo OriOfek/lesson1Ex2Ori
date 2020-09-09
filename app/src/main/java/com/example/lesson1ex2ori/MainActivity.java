@@ -107,9 +107,6 @@ public class MainActivity extends AppCompatActivity {
         if(Float.isNaN(number)) {
             return ("no solution");
         }
-        if(Float.isInfinite(number)) {
-            return ("too big");
-        }
         if((((float)((int)number)) == (float)number))
         {
             return String.valueOf((int)number);
