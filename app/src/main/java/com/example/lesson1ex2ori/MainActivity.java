@@ -43,17 +43,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void generate(View view) {
         Random rnd = new Random();
-        a = (Float.MIN_VALUE) + rnd.nextFloat() * (Float.MAX_VALUE - (Float.MIN_VALUE));
+        a = (-100) + rnd.nextFloat() * (100 - (-100));
         if(rnd.nextBoolean())
         {
             a = -1 * a;
         }
-        b = (Float.MIN_VALUE) + rnd.nextFloat() * (Float.MAX_VALUE - (Float.MIN_VALUE));
+        b = (-100) + rnd.nextFloat() * (100 - (-100));
         if(rnd.nextBoolean())
         {
             b = -1 * b;
         }
-        c = (Float.MIN_VALUE) + rnd.nextFloat() * (Float.MAX_VALUE - (Float.MIN_VALUE));
+        c = (-100) + rnd.nextFloat() * (100 - (-100));
         if(rnd.nextBoolean())
         {
             c = -1 * c;
