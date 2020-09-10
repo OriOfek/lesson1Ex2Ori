@@ -17,7 +17,6 @@ public class Answers extends AppCompatActivity {
     String url;
     float a, b, c, determinant;
     WebView wv;
-    String result1Str, result2Str;
     String signa;
     String signb;
     String signc;
@@ -42,26 +41,27 @@ public class Answers extends AppCompatActivity {
         gi = getIntent();
         a = gi.getFloatExtra("a", 1);
         b = gi.getFloatExtra("b", 1);
-        c = gi.getFloatExtra("c", 1);
+        c = gi.getFloatExtra("c", 1);//Andrew was here
 
         abc.setText("a=" + editNumers(a) + " b=" + editNumers(b) + " c=" + editNumers(c));
         determinant = (float) ((b * b) - (4.0 * a * c));
 
-        result1 = (float) ((-b + Math.pow(determinant, 0.5)) / (2.0 * a));
-        result2 = (float) ((-b - Math.pow(determinant, 0.5)) / (2.0 * a));
+        result1 = (float) ((-b + Math.sqrt(determinant)) / (2.0 * a));
+        result2 = (float) ((-b - Math.sqrt(determinant)) / (2.0 * a));
 
         signa = getsign(String.valueOf(a));
         signb = getsign(String.valueOf(b));
         signc = getsign(String.valueOf(c));
 
         stra = editNumers(Float.valueOf(getstr(String.valueOf(a))));
-        strb = editNumers(Float.valueOf(getstr(String.valueOf(b))));
-        strc = editNumers(Float.valueOf(getstr(String.valueOf(c))));
+        strb = getstr(editNumers(b));
+        strc = getstr(editNumers(c));
 
         if (strc.contains("*"))
         {
             strc = strc.replace("*","");
         }
+
         if(signa !="-")
         {
             url = "https://www.google.com/search?q="+ stra + "x%5E2" +signb+ strb+ "x" +signc+ strc + "&rlz=1C1CHBD_enIL872IL872&oq=x%5E2%2B5x&aqs=chrome.1.69i57j0l7.15066j0j7&sourceid=chrome&ie=UTF-8";
@@ -98,7 +98,7 @@ public class Answers extends AppCompatActivity {
     read the edit text and dexide what is the sign
      */
     private String getsign(String str) {
-        String sign ="";
+        String sign = "";
 
         if (str.contains("-"))
         {
