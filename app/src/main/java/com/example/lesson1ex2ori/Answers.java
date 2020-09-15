@@ -7,10 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import static java.lang.Double.NaN;
 
 public class Answers extends AppCompatActivity {
     Intent gi;
@@ -41,21 +38,21 @@ public class Answers extends AppCompatActivity {
         gi = getIntent();
         a = gi.getFloatExtra("a", 1);
         b = gi.getFloatExtra("b", 1);
-        c = gi.getFloatExtra("c", 1);//Andrew was here
+        c = gi.getFloatExtra("c", 1);
 
-        abc.setText("a=" + editNumers(a) + " b=" + editNumers(b) + " c=" + editNumers(c));
+        abc.setText("a=" + editNumbers(a) + " b=" + editNumbers(b) + " c=" + editNumbers(c));
         determinant = (float) ((b * b) - (4.0 * a * c));
 
         result1 = (float) ((-b + Math.sqrt(determinant)) / (2.0 * a));
         result2 = (float) ((-b - Math.sqrt(determinant)) / (2.0 * a));
 
-        signa = getsign(String.valueOf(a));
-        signb = getsign(String.valueOf(b));
-        signc = getsign(String.valueOf(c));
+        signa = getSign(String.valueOf(a));
+        signb = getSign(String.valueOf(b));
+        signc = getSign(String.valueOf(c));
 
-        stra = editNumers(Float.valueOf(getstr(String.valueOf(a))));
-        strb = getstr(editNumers(b));
-        strc = getstr(editNumers(c));
+        stra = editNumbers(Float.valueOf(getStr(String.valueOf(a))));
+        strb = getStr(editNumbers(b));
+        strc = getStr(editNumbers(c));
 
         if (strc.contains("*"))
         {
@@ -71,7 +68,7 @@ public class Answers extends AppCompatActivity {
         }
         wv.loadUrl(url);
 
-        results.setText("result1=" + editNumers(result1) + " result2=" + editNumers(result2));
+        results.setText("result1=" + editNumbers(result1) + " result2=" + editNumbers(result2));
     }
 
     public void back(View view) {
@@ -81,7 +78,7 @@ public class Answers extends AppCompatActivity {
         finish();
     }
 
-    private  String editNumers(float number)
+    private  String editNumbers(float number)
     {
         if(Float.isNaN(number)) {
             return ("no solution");
@@ -95,9 +92,9 @@ public class Answers extends AppCompatActivity {
     /*
     Input: edit text
     Output: The sign
-    read the edit text and dexide what is the sign
+    read the edit text and decide what is the sign
      */
-    private String getsign(String str) {
+    private String getSign(String str) {
         String sign = "";
 
         if (str.contains("-"))
@@ -111,7 +108,7 @@ public class Answers extends AppCompatActivity {
         return sign;
     }
 
-    private String getstr(String number)
+    private String getStr(String number)
     {
         float value = 0;
         String answer ="";
