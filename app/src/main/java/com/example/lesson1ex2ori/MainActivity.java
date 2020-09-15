@@ -131,6 +131,9 @@ public class MainActivity extends AppCompatActivity {
                     result1.setText(editNumers(Float.valueOf(String.valueOf(r1))));
                     result2.setText(editNumers(Float.valueOf(String.valueOf(r2))));
 
+                    eta.setText("");
+                    etb.setText("");
+                    etc.setText("");
                 }
             }
         }
